@@ -52,9 +52,10 @@ $api = new Meting($server);
 $api->format(true);
 
 // 设置cookie
-/*if ($server == 'netease') {
-    $api->cookie('os=pc; osver=Microsoft-Windows-10-Professional-build-10586-64bit; appver=2.0.3.131777; channel=netease; MUSIC_U=****** ; __remember_me=true');
-}*/
+$tencent_cookie = getenv('COOKIE_TENCENT');
+if ($server == 'tencent') {
+    $api->cookie(tencent_cookie);
+}
 
 if ($type == 'playlist') {
 
