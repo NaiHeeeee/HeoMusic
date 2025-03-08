@@ -42,9 +42,9 @@ if (in_array($type, ['song', 'playlist'])) {
 header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: GET');
 
-include __DIR__ . '/vendor/autoload.php';
+// include __DIR__ . '/vendor/autoload.php';
 // you can use 'Meting.php' instead of 'autoload.php'
-// include __DIR__ . '/src/Meting.php';
+include __DIR__ . '/src/Meting.php';
 
 use Metowolf\Meting;
 
@@ -61,7 +61,7 @@ if ($type == 'playlist') {
     if (CACHE) {
         $file_path = __DIR__ . '/cache/playlist/' . $server . '_' . $id . '.json';
         if (file_exists($file_path)) {
-            if ($_SERVER['REQUEST_TIME'] - filectime($file_path) < CACHE_TIME) {
+            if ($_SERVER['REQUEST_TIME'] - filemtime($file_path) < CACHE_TIME) {
                 echo file_get_contents($file_path);
                 exit;
             }
@@ -169,7 +169,7 @@ function song2data($api, $song, $type, $id)
             break;
 
         case 'pic':
-            $data = json_decode($api->pic($id, 800))->url;
+            $data = json_decode($api->pic($id, 90))->url;
             break;
 
         case 'lrc':
