@@ -34,13 +34,6 @@
     <a href="<?php echo API_URI ?>?type=url&id=416892104" target="_blank" style="padding-left:48px"><?php echo API_URI ?>?type=url&id=416892104</a><br />
     <a href="<?php echo API_URI ?>?type=song&id=591321" target="_blank" style="padding-left:48px"><?php echo API_URI ?>?type=song&id=591321</a><br />
     <a href="<?php echo API_URI ?>?type=playlist&id=2619366284" target="_blank" style="padding-left:48px"><?php echo API_URI ?>?type=playlist&id=2619366284</a>
-    
-
-   <br/> 
-   <br/>
-   <br/>
-   <br/>
-©️2023 <a href="https:qijieya.cn" target="_blank">祈杰</a> All rights reserved.
 
 </body>
 
