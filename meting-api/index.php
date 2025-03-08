@@ -160,7 +160,7 @@ function song2data($api, $song, $type, $id)
         case 'url':
             $m_url = json_decode($api->url($id, 320))->url;
             if ($m_url == '') break;
-            // url
+            // url format
             if ($api->server == 'netease') {
                 if ($m_url[4] != 's') $m_url = str_replace('http', 'https', $m_url);
             }
