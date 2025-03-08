@@ -52,9 +52,9 @@ $api = new Meting($server);
 $api->format(true);
 
 // 设置cookie
-/*if ($server == 'netease') {
-    $api->cookie('os=pc; osver=Microsoft-Windows-10-Professional-build-10586-64bit; appver=2.0.3.131777; channel=netease; MUSIC_U=****** ; __remember_me=true');
-}*/
+if ($server == 'netease') {
+    $api->cookie('NMTID=00ORhB6d-HqjDxEX0pRvkh4DG7yrxUAAAGVc_RAOw; JSESSIONID-WYYY=50%2FX5gNwHNZ%5CVNsX7Z3jcaxKKVol%2FC%2B9nzGtXt6GxcEfhWQ9gokdpYp60%5C%5Cv7ImqX%2B7UFVM6vz1IoMGZ9VwkgvnCeVsX37foDdVcSZy%2FeexaglY1Zc39B3MwhpzECs2z6jrXI40jJ2jHzkqeXhH01mCcAFh7ZOqt5PljkYKIXxqZqxyf%3A1741408942461; _iuqxldmzr_=32; _ntes_nnid=610b7ab1525b2700643fdeff2afee917,1741407142481; _ntes_nuid=610b7ab1525b2700643fdeff2afee917; WEVNSM=1.0.0; WNMCID=jgzopa.1741407143482.01.0; __snaker__id=9vhBato4vbiXUJJT; gdxidpyhxdE=aGS18IIXDOJRuWJd1tTK8L7gkKcGvLi0vVsLrluC5gpKoSyZWCw71mfZm0OPOM0EOzzkEw8MWN%5CGCZTQuwfumEUhVhdr7SH659t9kfgJYrjf5ZoWg4g%2BvjBhZhXYSAlPNwSqO03mdSTtz6hBi27R0MhlesAHQaa71gHeP4DfoIgjEcd%2B%3A1741408871524; WM_TID=WDMabpW87jFFEBQUBVKCT9dVaywDdMX4; WM_NI=5Irjog9F%2BH7FqMR1G1Lm5pVdagJxf9nFAWaXsTBmmP4VR9zG8THu0uChpT4C8671btZu%2B5YewkH0m9fQa4Hf%2FckPEMpfCj8SWYSFUvlXRqjUfp6tws74q%2BKKYvXOD5cxU0Q%3D; WM_NIKE=9ca17ae2e6ffcda170e2e6eeb5aa6ef6adb8d5c76396bc8ea2c44a878f9ab1d243aaeca5b7c84ded9fba96ae2af0fea7c3b92af797be8bee6dfb9ae5a9b64eb3939ed2c63b90b3fb91d570a3b98699e533ae9a8fb8e454b18c8e8ef05cf88a9edaf94dfc8c8896b37f81b8c0b5b749fceaf9d2e1809aabe5d6dc6fb5b588d1f033a68fafd5cb6eedbda5b1c847b4ba8d8bbb5995879da7d87eb0889e92e95fa6b0fa95f679f5ecbfccca419baa98b0c73fa1a89bd1d437e2a3; __csrf=77a4f2bd0982acfa52f233d555711277');
+}
 
 if ($type == 'playlist') {
 
