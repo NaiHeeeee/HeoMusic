@@ -135,9 +135,10 @@ var heo = {
           for (let i = 0; i < lyrics.length; i++) {
             if (lyrics[i] === event.target) {
               // 获取当前播放器实例
-              const player = ap;
+              // 修改这里：使用全局的 ap 变量或者通过 DOM 获取播放器实例
+              const player = window.ap || document.querySelector('meting-js').aplayer;
               // 使用播放器内部的歌词数据
-              if (player.lrc.current[i]) {
+              if (player && player.lrc && player.lrc.current && player.lrc.current[i]) {
                 const time = player.lrc.current[i][0];
                 player.seek(time);
                 // 如果当前是暂停状态,则恢复播放
@@ -272,50 +273,62 @@ var heo = {
 
 //空格控制音乐
 document.addEventListener("keydown", function (event) {
+  // 获取播放器实例
+  const player = window.ap || document.querySelector('meting-js')?.aplayer;
+  
+  if (!player) return; // 如果播放器未初始化则直接返回
+
   //暂停开启音乐
   if (event.code === "Space") {
     event.preventDefault();
-    ap.toggle();
-
+    player.toggle();
   };
+  
   //切换下一曲
   if (event.keyCode === 39) {
     event.preventDefault();
-    ap.skipForward();
-
+    player.skipForward();
+    console.log("下一曲");
   };
+  
   //切换上一曲
   if (event.keyCode === 37) {
     event.preventDefault();
-    ap.skipBack();
-
+    player.skipBack();
+    console.log("上一曲");
   }
+  
   //增加音量
   if (event.keyCode === 38) {
     if (volume <= 1) {
       volume += 0.1;
-      ap.volume(volume, true);
-
+      player.volume(volume, true);
+      console.log("音量增加");
     }
   }
+  
   //减小音量
   if (event.keyCode === 40) {
     if (volume >= 0) {
       volume += -0.1;
-      ap.volume(volume, true);
-
+      player.volume(volume, true);
+      console.log("音量减小");
     }
   }
 });
 
 // 监听窗口大小变化
 window.addEventListener('resize', function() {
-  if (window.innerWidth > 768) {
-    ap.list.show();
-  } else {
-    ap.list.hide();
-  }
+  // 获取播放器实例
+  const player = window.ap || document.querySelector('meting-js')?.aplayer;
+  
+  if (!player) return; // 如果播放器未初始化则直接返回
 
+  if (window.innerWidth > 768) {
+    player.list.show();
+  } else {
+    player.list.hide();
+  }
 });
 
 // 调用
