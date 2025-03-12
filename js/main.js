@@ -2,7 +2,7 @@ console.log("\n %c HeoMusic 开源静态音乐播放器 %c https://github.com/zh
 var local = false;
 
 if (typeof userId === 'undefined') {
-  var userId = "8152976493"; // 替换为实际的默认值
+  var userId = "3778678"; // 替换为实际的默认值
 }
 if (typeof userServer === 'undefined') {
   var userServer = "netease"; // 替换为实际的默认值
@@ -135,7 +135,6 @@ var heo = {
           for (let i = 0; i < lyrics.length; i++) {
             if (lyrics[i] === event.target) {
               // 获取当前播放器实例
-              // 修改这里：使用全局的 ap 变量或者通过 DOM 获取播放器实例
               const player = window.ap || document.querySelector('meting-js').aplayer;
               // 使用播放器内部的歌词数据
               if (player && player.lrc && player.lrc.current && player.lrc.current[i]) {
@@ -276,30 +275,31 @@ document.addEventListener("keydown", function (event) {
   // 获取播放器实例
   const player = window.ap || document.querySelector('meting-js')?.aplayer;
   
-  if (!player) return; // 如果播放器未初始化则直接返回
+  if (!player) return;
 
   //暂停开启音乐
   if (event.code === "Space") {
     event.preventDefault();
     player.toggle();
+    console.log(`播放状态：${player.paused ? '已暂停' : '播放中'}`);
   };
   
   //切换下一曲
-  if (event.keyCode === 39) {
+  if (event.key === 'ArrowRight') {  // 按“→”方向键
     event.preventDefault();
     player.skipForward();
     console.log("下一曲");
   };
   
   //切换上一曲
-  if (event.keyCode === 37) {
+  if (event.key === 'ArrowLeft') {  // 按“←”方向键
     event.preventDefault();
     player.skipBack();
     console.log("上一曲");
   }
   
   //增加音量
-  if (event.keyCode === 38) {
+  if (event.key === 'ArrowUp') {  // 按“↑”方向键
     if (volume <= 1) {
       volume += 0.1;
       player.volume(volume, true);
@@ -308,7 +308,7 @@ document.addEventListener("keydown", function (event) {
   }
   
   //减小音量
-  if (event.keyCode === 40) {
+  if (event.key === 'ArrowDown') {  // 按“↓”方向键
     if (volume >= 0) {
       volume += -0.1;
       player.volume(volume, true);
