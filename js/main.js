@@ -281,7 +281,7 @@ document.addEventListener("keydown", function (event) {
   if (event.code === "Space") {
     event.preventDefault();
     player.toggle();
-    console.log(`播放状态：${player.paused ? '已暂停' : '播放中'}`);
+    console.log(`${player.paused ? '已暂停' : '播放中'}`);
   };
   
   //切换下一曲
